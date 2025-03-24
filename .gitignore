@@ -11,6 +11,6 @@
 
 # 编译后的文件和文件夹
 out
-.ilk
-.pdb
+*.ilk
+*.pdb
 *.exe
