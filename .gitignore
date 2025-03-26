@@ -14,3 +14,8 @@ out
 *.ilk
 *.pdb
 *.exe
+
+# js 配置文件
+package-lock.json
+package.json
+node_modules
