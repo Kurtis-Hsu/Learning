@@ -1,21 +1,21 @@
 # 编辑器自动生成的生成文件夹
-#idea
-.idea
+# idea
+.idea/
 *.iml
 
-#vscode
-.vscode
+# vscode
+.vscode/
 
-#vs
-.vs
+# vs
+.vs/
 
 # 编译后的文件和文件夹
-out
-*.ilk
-*.pdb
-*.exe
+/out/
+__pycache__/
 
 # js 配置文件
-package-lock.json
-package.json
-node_modules
+/package-lock.json
+/package.json
+
+# 临时资源文件夹
+/temp/

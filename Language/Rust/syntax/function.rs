@@ -6,7 +6,7 @@ fn main()
 
     another_function(10);
 
-    // rust 中的块可以有返回值
+    // Rust 中的块可以有返回值
     let x =
     {
         let y = 10;

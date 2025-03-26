@@ -9,7 +9,7 @@ fn main()
     else if number == 5 { println!("number == 5"); }
     else { println!("number > 5"); }
 
-    // rust 中的 if 是一个表达式，可以使用在 let 语句中
+    // Rust 中的 if 是一个表达式，可以使用在 let 语句中
     let condition = true;
     let number = if condition { 5 } else { 6 };
     println!("number = {number}");
