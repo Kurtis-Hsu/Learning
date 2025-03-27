@@ -8,6 +8,8 @@ print(type(var))
 var = 1.0
 print(type(var))
 
+var: int = 1 # Python 3.6 之后支持类型注解，但是不会进行类型检查
+
 v1, v2, v3 = 1, 2, 3
 
 # print(v) # 未赋值的变量不可以直接使用，会报错
@@ -17,6 +19,12 @@ VAR = '123'  # Python 没有常量，一般约定变量名大写表示该变量�
 # 定义字符串
 var = 'hello'
 var = "hello" # 单引号和双引号没有区别
+
+var = "hello" "world" # 相邻的两个字符串字面量会自动连接
+var = ("hello" 
+       "world") # 用括号可以换行
+# 只能连接字面量，变量需要用 + 连接
+var = var + "!"
 
 # 格式化字符串
 var = "%d 年 %02d 月 %02d" % (2025, 3, 26)

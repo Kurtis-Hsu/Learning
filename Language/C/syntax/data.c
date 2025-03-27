@@ -76,6 +76,22 @@ long double d3 = 3.14L; // 后缀 L 表示长双精度浮点型
 float f2 = 3.14e-2; // 3.14 * 10^-2
 double d2 = 3.14e2; // 3.14 * 10^2
 
+// 字符型
+// 字符型用于存储字符，底层存储为整数
+// 部分编译器 char 默认为有符号整型，部分编译器 char 默认为无符号整型
+// c99 和 c11 标准规定 char 为有符号整型
+// 可以使用 signed char、unsigned char 明确指定有符号或无符号
+char c1 = 'a'; // 1 字节
+char c2 = 97; // 97 对应的字符为 a
+char c4 = '\n'; // 换行符
+char c3 = '中'; // c99 和 c11 支持中文字符
+
+// 布尔值
+// C 语言没有内置的布尔类型，使用 1 和 0 代替，stdbool.h 头文件中定义了 bool、true、false
+#include <stdbool.h>
+bool b1 = true;
+bool b2 = false;
+
 #include <stdio.h>
 
 int main()

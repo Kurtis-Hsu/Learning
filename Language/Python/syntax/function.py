@@ -82,3 +82,12 @@ print(type(fun), fun(1, 2))
 
 ls = [1, 2, 3]
 print(list(map(lambda i: i ** 3, ls)))
+
+from package.pkg_lib import pkg_fun
+
+pkg_fun()
+
+from lib import fun
+from sys import argv
+
+fun(argv)
