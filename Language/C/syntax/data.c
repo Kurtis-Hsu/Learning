@@ -76,6 +76,12 @@ long double d3 = 3.14L; // 后缀 L 表示长双精度浮点型
 float f2 = 3.14e-2; // 3.14 * 10^-2
 double d2 = 3.14e2; // 3.14 * 10^2
 
+// 布尔值
+// C 语言没有内置的布尔类型，使用 1 和 0 代替，stdbool.h 头文件中定义了 bool、true、false
+#include <stdbool.h>
+bool b1 = true;
+bool b2 = false;
+
 // 字符型
 // 字符型用于存储字符，底层存储为整数
 // 部分编译器 char 默认为有符号整型，部分编译器 char 默认为无符号整型
@@ -86,11 +92,11 @@ char c2 = 97; // 97 对应的字符为 a
 char c4 = '\n'; // 换行符
 char c3 = '中'; // c99 和 c11 支持中文字符
 
-// 布尔值
-// C 语言没有内置的布尔类型，使用 1 和 0 代替，stdbool.h 头文件中定义了 bool、true、false
-#include <stdbool.h>
-bool b1 = true;
-bool b2 = false;
+#include <string.h>
+
+// 字符串
+// 字符串是一个或多个字符组成的数组
+char name[40] = "abc";
 
 #include <stdio.h>
 
@@ -102,25 +108,13 @@ int main()
     int max = 2147483647;
     unsigned int umax = 4294967295;
 
-    printf("\n");
-    printf("=== 数值溢出 ===\n");
+    printf("\n=== 数值溢出 ===\n");
     printf("打印 int 2147483647：%d\n", max);
     printf("打印 int 2147483647 + 1：%d\n", max + 1);
     printf("打印无符号 int 4294967295：%u\n", umax);
     printf("打印无符号 int 4294967295 + 1：%u\n", umax + 1);
 
-    printf("\n");
-    printf("=== 格式化输出 ===\n");
-    printf("整数：%d\n", 10);
-    printf("无符号整数：%u\n", 10);
-    printf("浮点数：%f\n", 3.14);
-    printf("字符：%c\n", 'a');
-    printf("字符串：%s\n", "hello");
-    printf("十六进制：%x\n", 10);
-    printf("八进制：%o\n", 10);
-    printf("科学计数法：%e\n", 3.14e-2);
-    printf("指数：%g\n", 3.14e2);
-    printf("指针：%p\n", &f);
+    int len = strlen(name);
 
     return 0;
 }
