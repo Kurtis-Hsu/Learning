@@ -12,17 +12,17 @@ fn main()
         let y = 10;
         y + 1 // 注意这里没有分号，表示这是一个表达式，而非语句
     };
-    println!("x = {x}");
+    dbg!(&x);
 
     let x = add(1, 1);
-    println!("x = {x}");
+    dbg!(&x);
 }
 
 fn another_function(x: i32)
 {
-    println!("Another function.");
+    println!("Another function");
 
-    println!("x = {x}");
+    dbg!(&x);
 }
 
 fn add(x: i32, y: i32) -> i32

@@ -11,32 +11,29 @@ fn main()
 
     let var = 10; // 声明变量，Rust 默认变量不可变，且会自动推断类型
 
-    println!("var = {var}");
+    dbg!(&var);
     // var = 20; // 重新赋值会报错
 
     let mut var2 = 10; // 使用 mut 关键字声明可变变量
 
     // var2 = 20; // 在变量被使用之前不可以被重新赋值，这里会报错
 
-    println!("var2 befor modified = {var2}");
+    dbg!(&var2);
     var2 = 20; // 可以重新赋值
-    println!("var2 after modified = {var2}");
-
-    let v1 = 10, v2 = 20; // 可以同时声明多个变量
-    println!("v1 = {v1}, v2 = {v2}");
+    dbg!(&var2);
 
     // 使用 const 声明常量，常量必须指定类型
     // 且常量不可以搭配 mut 使用，始终是不可变的
     const VAR3: i32 = 10;
-    println!("VAR3 = {VAR3}");
-    println!("THREE_HOURS_IN_SECONDS = {THREE_HOURS_IN_SECONDS}");
+    dbg!(&VAR3);
+    dbg!(&THREE_HOURS_IN_SECONDS);
 
     // 遮蔽（shadowing）：可以在变量名相同的情况下重新声明变量
     let var = var + 10;
-    println!("var = {var}");
+    dbg!(&var);
     // 遮蔽后的变量可以改变类型
     let var = "hello";
-    println!("var = {var}");
+    dbg!(&var);
 
     println!("\n=== 数据类型 ===");
 
@@ -49,9 +46,9 @@ fn main()
 
     // 整型默认是 i32 类型，可以使用后缀指定类型
     let int: i32 = 10;
-    println!("int = {int}");
+    dbg!(&int);
     let int = 10i64;
-    println!("int = {int}");
+    dbg!(&int);
 
     // Rust 字面量同样可以使用进制表示
     let decimal = 98_222; // 十进制
@@ -59,39 +56,39 @@ fn main()
     let octal = 0o77; // 八进制
     let binary = 0b1111_0000; // 二进制
     let byte = b'A'; // 字节（仅限 u8 类型）
-    println!("decimal = {decimal}, hex = {hex}, octal = {octal}, binary = {binary}, byte = {byte}");
+    dbg!(&(decimal, hex, octal, binary, byte));
 
     // 溢出：在 debug 模式下会报错，release 模式下会进行溢出处理
     // let overflow = 255u8 + 1; // 这里会报错，除非使用溢出处理或指定了 --release 参数
     let overflow = 255u8.wrapping_add(1);
-    println!("overflow = {overflow}");
+    dbg!(&overflow);
     let checked_overflow = 255u8.checked_add(1);
-    println!("checked_overflow = {}", checked_overflow.unwrap_or(0));
+    dbg!(&checked_overflow.unwrap_or(0));
     let overflowing_overflow = 255u8.overflowing_add(1);
-    println!("overflowing_overflow = {}", overflowing_overflow.0);
+    dbg!(&overflowing_overflow.0);
     let saturating_overflow = 255u8.saturating_add(1);
-    println!("saturating_overflow = {saturating_overflow}");
+    dbg!(&saturating_overflow);
 
     // 浮点型：f32、f64
     let f = 2.0; // 默认是 f64 类型
-    println!("float = {f}");
+    dbg!(&f);
     let f: f32 = 2.0; // 可以使用后缀指定类型
-    println!("float = {f}");
+    dbg!(&f);
     let f = 2.0f32;
-    println!("float = {f}");
+    dbg!(&f);
     let f = 2e-2; // 支持科学计数法
-    println!("float = {f}");
+    dbg!(&f);
 
     // 布尔型：bool
     let b = true;
-    println!("bool = {b}");
+    dbg!(&b);
     // 字符型：char
     let c = 'a';
-    println!("char = {c}");
+    dbg!(&c);
     let c = 64;
-    println!("char = {c}");
+    dbg!(&c);
     let c = '😀'; // Rust 中的字符是 Unicode 字符
-    println!("char = {c}");
+    dbg!(&c);
 
     // 复合类型：元组（tuple）、数组（array）
     // 元组：可以包含多个不同类型的值，长度固定
@@ -108,4 +105,15 @@ fn main()
     println!("array = {}, {}, {}, {}, {}", arr[0], arr[1], arr[2], arr[3], arr[4]);
     let arr = [3; 5]; // 使用相同的值初始化数组，3 表示每个元素的初始值，5 表示长度
     println!("array = {}, {}, {}, {}, {}", arr[0], arr[1], arr[2], arr[3], arr[4]);
+
+    println!("\n=== 切片 ===");
+    let s = String::from("hello world");
+    let slice = &s[0..5]; // 创建 s 的切片，从位置 0（包含）到位置 5（不包含），如果切片从 0 开始，0 可以省略 &s[..5]
+    dbg!(&slice);
+    let slice = &s[6..11]; // 可以省略 11 表示从 6 一直到结尾的位置
+    dbg!(&slice);
+    let slice = &s[..]; // 获取整个字符串的切片
+    dbg!(&slice);
+
+    // 任何集合类型都适用切片语法
 }
